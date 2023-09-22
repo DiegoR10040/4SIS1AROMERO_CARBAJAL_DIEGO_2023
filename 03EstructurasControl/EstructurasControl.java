@@ -28,13 +28,62 @@ class EstructurasControl{
             System.out. println("12.- Diamante ");
             System.out. println("13.- Calculadora ");
             System.out. println("14.- Salir ");
+
+            opcion = entrada.nextInt();
+
+            switch(opcion){
+                case 1:
+                    break;
+                case 2:
+                    System.out.println("Ingresa un numero positivo entero que desee convertir a binario");
+                    numbinario = entrada.nextInt();
+                    if(numbinario > 0){
+                        while(numbinario > 0){
+                            if(numbinario%2 == 0){
+                                binario = "0" + binario;
+                            }else{
+                                binario = "1" + binario;
+                            }
+                            numbinario = (int)numbinario/2;
+                        }
+                    }else if(numbinario == 0 ){
+                        binario = "0" + binario;
+                    }else{
+                        binario = "No se puede convertir un numero negativo, solo positivos";
+                    }
+                    System.out.println("El numero binario es: " + binario);
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+                case 11:
+                    break;
+                case 12:
+                    break;
+                case 13:
+                    break;
+                case 14:
+                    break;
+                default:
+                    System.out.println("Elija una opcion valida");
+                    break;
             
 
-
-
-
-
-
+            }
+            
 
 
 
