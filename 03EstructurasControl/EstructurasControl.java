@@ -4,11 +4,17 @@ class EstructurasControl{
 
     public static void main(String[] args){
         Scanner entrada = new Scanner(System.in);
-        int opcion, numbinario, total, cantidadproducto, num1;
+        int opcion, numbinario, total, cantidadproducto, num1, edad, cantidad;
+        int positivos = 0, negativos = 0;
+        double precioAbono, fahrenheit, celsius, kelvin, rankine;
         float precio, resultado, compra=0;
         String nombreproducto;
         String binario = "";
         char letra;
+        double longitud, anchura, areaRectangulo, perimetroRectangulo;
+        double base, altura, areaTriangulo, perimetroTriangulo;
+        double radioEsfera, volumenEsfera;
+        double radioCilindro, alturaCilindro, volumenCilindro;
 
         do{
 
@@ -33,6 +39,24 @@ class EstructurasControl{
 
             switch(opcion){
                 case 1:
+                    System.out.print("Ingrese su edad: ");
+                    edad = entrada.nextInt();
+                    precioAbono = 100.0; // Precio base del abono
+
+                    if (edad > 65) {
+                        precioAbono *= 0.6; // Descuento del 40% para mayores de 65 años
+                    } else if (edad < 21) {
+                        System.out.print("¿Sus padres son socios? (Sí/No): ");
+                        String respuesta = entrada.next();
+
+                        if (respuesta.equalsIgnoreCase("Sí")) {
+                            precioAbono *= 0.55; // Descuento del 45% si los padres son socios
+                        } else {
+                            precioAbono *= 0.75; // Descuento del 25% si los padres no son socios
+                        }
+                    }
+
+                    System.out.println("El precio del abono es: $" + precioAbono);
                     break;
                 case 2:
                     System.out.println("Ingresa un numero positivo entero que desee convertir a binario");
@@ -54,8 +78,49 @@ class EstructurasControl{
                     System.out.println("El numero binario es: " + binario);
                     break;
                 case 3:
+                    System.out.print("Ingrese la temperatura en grados Fahrenheit: ");
+                    fahrenheit = entrada.nextDouble();
+                    System.out.println("Elija la conversión deseada:");
+                    System.out.println("1. Fahrenheit a Celsius");
+                    System.out.println("2. Fahrenheit a Kelvin");
+                    System.out.println("3. Fahrenheit a Rankine");
+                    int conversion = entrada.nextInt();
+
+                    switch (conversion) {
+                        case 1:
+                            celsius = (fahrenheit - 32) * 5 / 9;
+                            System.out.println("La temperatura en grados Celsius es: " + celsius);
+                            break;
+                        case 2:
+                            kelvin = (fahrenheit - 32) * 5 / 9 + 273.15;
+                            System.out.println("La temperatura en Kelvin es: " + kelvin);
+                            break;
+                        case 3:
+                            rankine = fahrenheit + 459.67;
+                            System.out.println("La temperatura en Rankine es: " + rankine);
+                            break;
+                        default:
+                            System.out.println("Opción no válida.");
+                            break;
+                    }
                     break;
                 case 4:
+                    System.out.print("Ingrese la cantidad de números a evaluar: ");
+                    cantidad = entrada.nextInt();
+
+                    for (int i = 0; i < cantidad; i++) {
+                        System.out.print("Ingrese un número: ");
+                        int numero = entrada.nextInt();
+
+                        if (numero > 0) {
+                            positivos++;
+                        } else if (numero < 0) {
+                            negativos++;
+                        }
+                    }
+
+                    System.out.println("Cantidad de números positivos: " + positivos);
+                    System.out.println("Cantidad de números negativos: " + negativos);
                     break;
                 case 5:
                     System.out.println("Bienvenido a la tiendita");
@@ -76,6 +141,52 @@ class EstructurasControl{
                     compra = 0;
                     break;
                 case 6:
+                    System.out.println("Elija una opción:");
+                    System.out.println("1. Calcular área y perímetro de un rectángulo");
+                    System.out.println("2. Calcular área y perímetro de un triángulo");
+                    System.out.println("3. Calcular volumen de una esfera");
+                    System.out.println("4. Calcular volumen de un cilindro");
+                    int opcionGeometria = entrada.nextInt();
+
+                    switch (opcionGeometria) {
+                        case 1:
+                            System.out.print("Ingrese la longitud del rectángulo: ");
+                            longitud = entrada.nextDouble();
+                            System.out.print("Ingrese la anchura del rectángulo: ");
+                            anchura = entrada.nextDouble();
+                            areaRectangulo = longitud * anchura;
+                            perimetroRectangulo = 2 * (longitud + anchura);
+                            System.out.println("Área del rectángulo: " + areaRectangulo);
+                            System.out.println("Perímetro del rectángulo: " + perimetroRectangulo);
+                            break;
+                        case 2:
+                            System.out.print("Ingrese la base del triángulo: ");
+                            base = entrada.nextDouble();
+                            System.out.print("Ingrese la altura del triángulo: ");
+                            altura = entrada.nextDouble();
+                            areaTriangulo = 0.5 * base * altura;
+                            perimetroTriangulo = base + 2 * (Math.sqrt((base * base) + (altura * altura)));
+                            System.out.println("Área del triángulo: " + areaTriangulo);
+                            System.out.println("Perímetro del triángulo: " + perimetroTriangulo);
+                            break;
+                        case 3:
+                            System.out.print("Ingrese el radio de la esfera: ");
+                            radioEsfera = entrada.nextDouble();
+                            volumenEsfera = (4.0 / 3.0) * Math.PI * Math.pow(radioEsfera, 3);
+                            System.out.println("Volumen de la esfera: " + volumenEsfera);
+                            break;
+                        case 4:
+                            System.out.print("Ingrese el radio del cilindro: ");
+                            radioCilindro = entrada.nextDouble();
+                            System.out.print("Ingrese la altura del cilindro: ");
+                            alturaCilindro = entrada.nextDouble();
+                            volumenCilindro = Math.PI * Math.pow(radioCilindro, 2) * alturaCilindro;
+                            System.out.println("Volumen del cilindro: " + volumenCilindro);
+                            break;
+                        default:
+                            System.out.println("Opción no válida.");
+                            break;
+                    }
                     break;
                 case 7:
                     break;
