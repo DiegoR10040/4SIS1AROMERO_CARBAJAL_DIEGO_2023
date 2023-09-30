@@ -4,7 +4,7 @@ class EstructurasControl{
 
     public static void main(String[] args){
         Scanner entrada = new Scanner(System.in);
-        int opcion, numbinario, total, cantidadproducto, num1, edad, cantidad;
+        int opcion, numbinario, total, cantidadproducto, num1, edad, cantidad, numerofac;
         int positivos = 0, negativos = 0;
         double precioAbono, fahrenheit, celsius, kelvin, rankine;
         float precio, resultado, compra=0;
@@ -191,6 +191,20 @@ class EstructurasControl{
                 case 7:
                     break;
                 case 8:
+                    System.out.print("Ingrese un número entero no negativo: ");
+                    numerofac = entrada.nextInt();
+
+                    if (numerofac < 0) {
+                        System.out.println("El número debe ser no negativo.");
+                    } else {
+                        long factorial = 1;
+
+                        for (int i = 1; i <= numerofac; i++) {
+                            factorial *= i;
+                        }
+
+                        System.out.println("El factorial de " + numerofac + " es " + factorial);
+                    }
                     break;
                 case 9:
                     break;
