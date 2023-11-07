@@ -19,7 +19,7 @@ public class Palindromo {
                 //concatenar 
                 invertida += car;
                 }
-
+                //h
                 String salida  = "Cadenas a concatenar:"+ cadena + "\n"+ invertida + "\n";
                  if(noSpace.equalsIgnoreCase(invertida)){
                     //si es verdad 
