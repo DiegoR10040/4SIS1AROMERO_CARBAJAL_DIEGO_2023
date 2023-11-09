@@ -4,4 +4,9 @@ class Principal{
         Ejercicios obj = new Ejercicios();
         obj.menu();
     }
+
+    @Override
+    public String toString() {
+        return "Principal []";
+    }
 }

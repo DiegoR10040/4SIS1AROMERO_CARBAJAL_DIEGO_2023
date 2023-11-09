@@ -64,4 +64,9 @@ public class Ejercicios {
             System.out.println("Alumnos reprobados: " + alumnosReprobados);
         }
     }
+
+    
+
+    public void menu() {
+    }
 }
