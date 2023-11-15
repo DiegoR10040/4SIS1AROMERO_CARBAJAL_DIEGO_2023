@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class Interfaz extends JFrame {
     private JTextField campoUsuario;
     private JPasswordField campoPassword;
-
+//h
     public Interfaz() {
         // Configuración de la ventana
         setTitle("Inicio de Sesión");
